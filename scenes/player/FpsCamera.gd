@@ -8,7 +8,7 @@ var max_pich_value:float = 89.0
 
 @onready var camera_3d = $Camera3D
 
-const BOB_FREQ = 2.0
+const BOB_FREQ = 1.0
 const BOB_AMOUTH = 0.05
 var head_bob = 0.0
 
