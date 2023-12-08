@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dn2y020s1nhxk"]
+
+[ext_resource type="Script" path="res://scenes/enemies/enemy_melee/enemy.gd" id="1_tluqw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_thh1j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhgdg"]
+albedo_color = Color(1, 0.0509804, 0.0509804, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lbhna"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6je5l"]
+points = PackedVector3Array(0, 1, 0, 10, 0, -15, 10, 5, -15, -10, 0, -15, -10, 5, -15)
+
+[node name="EnemyMelee" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_tluqw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_thh1j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_fhgdg")
+mesh = SubResource("CapsuleMesh_lbhna")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 2.0
+avoidance_enabled = true
+use_3d_avoidance = true
+
+[node name="PlayerDetector" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetector"]
+shape = SubResource("ConvexPolygonShape3D_6je5l")
+
+[node name="DetectedLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72272, 0)
+visible = false
+billboard = 1
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0.584314)
+text = "!"
+font_size = 256
+uppercase = true
+
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

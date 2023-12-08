@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cdxm55m2ht5gb"]
+[gd_scene load_steps=28 format=3 uid="uid://cdxm55m2ht5gb"]
 
 [ext_resource type="Texture2D" uid="uid://blpbxb15mb2q3" path="res://assets/kenney_prototypeTextures/Vector/texture_04.svg" id="1_2idy4"]
 [ext_resource type="Texture2D" uid="uid://tra1lhlk2hhu" path="res://assets/kenney_prototypeTextures/Vector/texture_03.svg" id="2_ul7cj"]
@@ -16,6 +16,10 @@ background_mode = 2
 sky = SubResource("Sky_r100h")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_82pp0"]
+vertices = PackedVector3Array(-19.5, 0.5, -5, -10.5, 0.5, -5, -10.25, 0.5, -7.5, -10.25, 0.5, -7.5, -7.75, 0.5, -7.5, -7.75, 0.5, -19.5, -10.25, 0.5, -7.5, -7.75, 0.5, -19.5, -19.5, 0.5, -19.5, -19.5, 0.5, -5, 7.5, 0.5, -10.25, 9.75, 0.5, -10.5, 9.75, 0.5, -19.5, -7.75, 0.5, -19.5, -7.75, 0.5, -7.5, -5.25, 0.5, -7.25, 7.5, 0.5, -10.25, 9.75, 0.5, -19.5, -5.25, 0.5, -7.25, -5.25, 0.5, -4.25, 7.5, 0.5, -4, 7.5, 0.5, -10.25, 16.5, 0.5, -10.5, 16.75, 0.5, -3.75, 19.25, 0.5, -3.75, 19.25, 0.5, -19.5, 16.5, 0.5, -10.5, 19.25, 0.5, -19.5, 9.75, 0.5, -19.5, 9.75, 0.5, -10.5, 8.5, 8.5, -9.5, 8.5, 8.5, -2.5, 15.5, 8.5, -2.5, 15.5, 8.5, -9.5, 8.75, 0.5, -9.25, 8.75, 0.5, -2.75, 15.5, 0.5, -2.75, 15.5, 0.5, -9.25, -9.5, 4.5, -6.5, -9.5, 4.5, -3.5, -6.5, 4.5, -3.5, -6.5, 4.5, -6.5, -9.25, 0.5, -6.25, -9.25, 0.5, -3.75, -6.5, 0.5, -3.75, -6.5, 0.5, -6.25, -10.25, 0.5, -2.5, -10.5, 0.5, -5, -19.5, 0.5, -5, -6.75, 0.5, 19.25, -7, 0.5, -2.5, -10.25, 0.5, -2.5, -10.25, 0.5, -2.5, -19.5, 0.5, -5, -19.5, 0.5, 19.25, -6.75, 0.5, 19.25, 19.25, 0.5, -3.75, 16.75, 0.5, -3.75, 16.5, 0.5, -1.5, 19.25, 0.5, 19.25, 7.5, 0.5, -4, -5.25, 0.5, -4.25, -5.5, 0.5, -2.5, 7.75, 0.5, -1.5, 19.25, 0.5, 19.25, 16.5, 0.5, -1.5, 7.75, 0.5, -1.5, 7.75, 0.5, -1.5, -5.5, 0.5, -2.5, -7, 0.5, -2.5, -6.75, 0.5, 19.25, 19.25, 0.5, 19.25)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(12, 11, 10), PackedInt32Array(14, 13, 15), PackedInt32Array(15, 13, 16), PackedInt32Array(16, 13, 17), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 25), PackedInt32Array(29, 28, 26), PackedInt32Array(26, 28, 27), PackedInt32Array(33, 32, 30), PackedInt32Array(30, 32, 31), PackedInt32Array(37, 36, 34), PackedInt32Array(34, 36, 35), PackedInt32Array(41, 40, 38), PackedInt32Array(38, 40, 39), PackedInt32Array(45, 44, 42), PackedInt32Array(42, 44, 43), PackedInt32Array(48, 47, 46), PackedInt32Array(51, 50, 49), PackedInt32Array(53, 52, 54), PackedInt32Array(54, 52, 55), PackedInt32Array(57, 56, 58), PackedInt32Array(58, 56, 59), PackedInt32Array(61, 60, 62), PackedInt32Array(62, 60, 63), PackedInt32Array(66, 65, 64), PackedInt32Array(68, 67, 69), PackedInt32Array(69, 67, 70), PackedInt32Array(70, 67, 71)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l570v"]
 albedo_texture = ExtResource("1_2idy4")
@@ -182,42 +186,47 @@ environment = SubResource("Environment_gr4ll")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="Platform" type="Node3D" parent="."]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_82pp0")
+
+[node name="Floor" type="MeshInstance3D" parent="NavigationRegion3D"]
 material_override = SubResource("StandardMaterial3D_l570v")
 mesh = SubResource("ArrayMesh_ooevw")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3d3k5")
 
-[node name="Walls" type="MeshInstance3D" parent="."]
+[node name="Walls" type="MeshInstance3D" parent="NavigationRegion3D"]
 material_override = SubResource("StandardMaterial3D_c4kio")
 mesh = SubResource("ArrayMesh_3xpqv")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Walls"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Walls"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Walls/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4l3t0")
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="Cube" type="MeshInstance3D" parent="NavigationRegion3D"]
 material_override = SubResource("StandardMaterial3D_qibn6")
 mesh = SubResource("ArrayMesh_i1b7m")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Cube"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_1iunn")
 
-[node name="Cube_big" type="MeshInstance3D" parent="."]
+[node name="Cube_big" type="MeshInstance3D" parent="NavigationRegion3D"]
 material_override = SubResource("StandardMaterial3D_oeoy0")
 mesh = SubResource("ArrayMesh_hrxe8")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube_big"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Cube_big"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_big/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Cube_big/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_j6hrq")
