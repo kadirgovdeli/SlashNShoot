@@ -6,7 +6,7 @@ signal game_unpaused()
 @onready var quit_button = %QuitButton
 @onready var color_rect = $ColorRect
 var can_change:bool = true
-@export_range(0.0,2.0) var max_blur:float = 2.0
+@export_range(0.0,4.0) var max_blur:float = 2.5
 @export_range(0.0,1.0) var min_brightness:float = 0.9
 @export_range(0.0,1.0) var tween_speed:float = 0.1
 
