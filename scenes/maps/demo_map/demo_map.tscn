@@ -1,4 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://cdxm55m2ht5gb"]
+[gd_scene load_steps=24 format=3 uid="uid://cdxm55m2ht5gb"]
+
+[ext_resource type="Texture2D" uid="uid://blpbxb15mb2q3" path="res://assets/kenney_prototypeTextures/Vector/texture_04.svg" id="1_2idy4"]
+[ext_resource type="Texture2D" uid="uid://tra1lhlk2hhu" path="res://assets/kenney_prototypeTextures/Vector/texture_03.svg" id="2_ul7cj"]
+[ext_resource type="Texture2D" uid="uid://dhhr8b2a1o7aj" path="res://assets/kenney_prototypeTextures/Vector/texture_09.svg" id="3_af4o0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l570v"]
+albedo_texture = ExtResource("1_2idy4")
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qw62i"]
 
@@ -35,6 +43,10 @@ shadow_mesh = SubResource("ArrayMesh_esa4t")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3d3k5"]
 data = PackedVector3Array(-20, 0, 20, 20, 0, -20, 20, 0, 20, -20, 0, 20, -20, 0, -20, 20, 0, -20)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4kio"]
+albedo_texture = ExtResource("2_ul7cj")
+uv1_triplanar = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djmj1"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_eyrj0"]
@@ -70,6 +82,10 @@ shadow_mesh = SubResource("ArrayMesh_eyrj0")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4l3t0"]
 data = PackedVector3Array(20, 0, 20, 20, 6, -20, 20, 6, 20, 20, 0, 20, 20, 0, -20, 20, 6, -20, 20, 0, -20, 21, 6, -20, 20, 6, -20, 20, 0, -20, 21, 0, -20, 21, 6, -20, 21, 0, -20, 21, 6, 20, 21, 6, -20, 21, 0, -20, 21, 0, 20, 21, 6, 20, 21, 0, 20, 20, 6, 20, 21, 6, 20, 21, 0, 20, 20, 0, 20, 20, 6, 20, 20, 0, -20, 21, 0, 20, 21, 0, -20, 20, 0, -20, 20, 0, 20, 21, 0, 20, 21, 6, -20, 20, 6, 20, 20, 6, -20, 21, 6, -20, 21, 6, 20, 20, 6, 20, -21, 0, 20, -21, 6, -20, -21, 6, 20, -21, 0, 20, -21, 0, -20, -21, 6, -20, -21, 0, -20, -20, 6, -20, -21, 6, -20, -21, 0, -20, -20, 0, -20, -20, 6, -20, -20, 0, -20, -20, 6, 20, -20, 6, -20, -20, 0, -20, -20, 0, 20, -20, 6, 20, -20, 0, 20, -21, 6, 20, -20, 6, 20, -20, 0, 20, -21, 0, 20, -21, 6, 20, -21, 0, -20, -20, 0, 20, -20, 0, -20, -21, 0, -20, -21, 0, 20, -20, 0, 20, -20, 6, -20, -21, 6, 20, -21, 6, -20, -20, 6, -20, -20, 6, 20, -21, 6, 20, 20, 2.38419e-07, -20, -20, 6, -20, 20, 6, -20, 20, 2.38419e-07, -20, -20, 2.38419e-07, -20, -20, 6, -20, -20, 2.38419e-07, -20, -20, 6, -21, -20, 6, -20, -20, 2.38419e-07, -20, -20, 2.38419e-07, -21, -20, 6, -21, -20, 2.38419e-07, -21, 20, 6, -21, -20, 6, -21, -20, 2.38419e-07, -21, 20, 2.38419e-07, -21, 20, 6, -21, 20, 2.38419e-07, -21, 20, 6, -20, 20, 6, -21, 20, 2.38419e-07, -21, 20, 2.38419e-07, -20, 20, 6, -20, -20, 2.38419e-07, -20, 20, 2.38419e-07, -21, -20, 2.38419e-07, -21, -20, 2.38419e-07, -20, 20, 2.38419e-07, -20, 20, 2.38419e-07, -21, -20, 6, -21, 20, 6, -20, -20, 6, -20, -20, 6, -21, 20, 6, -21, 20, 6, -20, 20, 2.38419e-07, 21, -20, 6, 21, 20, 6, 21, 20, 2.38419e-07, 21, -20, 2.38419e-07, 21, -20, 6, 21, -20, 2.38419e-07, 21, -20, 6, 20, -20, 6, 21, -20, 2.38419e-07, 21, -20, 2.38419e-07, 20, -20, 6, 20, -20, 2.38419e-07, 20, 20, 6, 20, -20, 6, 20, -20, 2.38419e-07, 20, 20, 2.38419e-07, 20, 20, 6, 20, 20, 2.38419e-07, 20, 20, 6, 21, 20, 6, 20, 20, 2.38419e-07, 20, 20, 2.38419e-07, 21, 20, 6, 21, -20, 2.38419e-07, 21, 20, 2.38419e-07, 20, -20, 2.38419e-07, 20, -20, 2.38419e-07, 21, 20, 2.38419e-07, 21, 20, 2.38419e-07, 20, -20, 6, 20, 20, 6, 21, -20, 6, 21, -20, 6, 20, 20, 6, 20, 20, 6, 21, 20, 6, 21, 20, 2.38419e-07, 21, 20, 2.38419e-07, 20, 20, 2.38419e-07, 21, -20, 2.38419e-07, 20, -20, 2.38419e-07, 21, -20, 6, 21, 20, 6, 20, -20, 6, 20, 20, 2.38419e-07, 21, -20, 6, 21, -20, 2.38419e-07, 20, -20, 6, 21, 20, 6, 21, 20, 6, 20, 20, 2.38419e-07, 21, 20, 6, 21, -20, 6, 21)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qibn6"]
+albedo_texture = ExtResource("3_af4o0")
+uv1_triplanar = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxand"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6wtpl"]
@@ -104,6 +120,10 @@ shadow_mesh = SubResource("ArrayMesh_6wtpl")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1iunn"]
 data = PackedVector3Array(-10, 0, -3, -10, 4, -7, -10, 4, -3, -10, 0, -3, -10, 0, -7, -10, 4, -7, -10, 0, -7, -6, 4, -7, -10, 4, -7, -10, 0, -7, -6, 0, -7, -6, 4, -7, -6, 0, -7, -6, 4, -3, -6, 4, -7, -6, 0, -7, -6, 0, -3, -6, 4, -3, -6, 0, -3, -10, 4, -3, -6, 4, -3, -6, 0, -3, -10, 0, -3, -10, 4, -3, -10, 0, -7, -6, 0, -3, -6, 0, -7, -10, 0, -7, -10, 0, -3, -6, 0, -3, -6, 4, -7, -10, 4, -3, -10, 4, -7, -6, 4, -7, -6, 4, -3, -10, 4, -3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oeoy0"]
+albedo_texture = ExtResource("2_ul7cj")
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6dgm6"]
 
@@ -143,6 +163,7 @@ data = PackedVector3Array(8, 0, -2, 8, 8, -10, 8, 8, -2, 8, 0, -2, 8, 0, -10, 8,
 [node name="Demo_Map" type="Node3D"]
 
 [node name="Floor" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_l570v")
 mesh = SubResource("ArrayMesh_ooevw")
 skeleton = NodePath("")
 
@@ -152,6 +173,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_3d3k5")
 
 [node name="Walls" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_c4kio")
 mesh = SubResource("ArrayMesh_3xpqv")
 skeleton = NodePath("")
 
@@ -161,6 +183,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_4l3t0")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qibn6")
 mesh = SubResource("ArrayMesh_i1b7m")
 skeleton = NodePath("")
 
@@ -170,6 +193,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_1iunn")
 
 [node name="Cube_big" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_oeoy0")
 mesh = SubResource("ArrayMesh_hrxe8")
 skeleton = NodePath("")
 

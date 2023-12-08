@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://ch2icahu6o414"]
+[gd_scene load_steps=2 format=3 uid="uid://ch2icahu6o414"]
+
+[ext_resource type="PackedScene" uid="uid://cdxm55m2ht5gb" path="res://scenes/maps/demo_map/demo_map.tscn" id="1_rkngf"]
 
 [node name="Game" type="Node"]
+
+[node name="Demo_Map" parent="." instance=ExtResource("1_rkngf")]
