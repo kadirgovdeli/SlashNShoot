@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://dro0u8fvhuiuj"]
+
+[ext_resource type="Script" path="res://scenes/ui/pause_menu/pause_menu.gd" id="1_ep14m"]
+[ext_resource type="Material" uid="uid://dm0rtchoouyyq" path="res://materials/pause_menu/blurr_effect.tres" id="2_8kljj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8br1q"]
+font_size = 32
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="InputEventAction" id="InputEventAction_3y4ka"]
+action = &"pause_game"
+
+[sub_resource type="Shortcut" id="Shortcut_gs03t"]
+events = [SubResource("InputEventAction_3y4ka")]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ep14m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("2_8kljj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -112.5
+offset_right = 72.5
+offset_bottom = 112.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_8br1q")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+shortcut = SubResource("Shortcut_gs03t")
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="OptionsButton" type="Button" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="ColorRect/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
