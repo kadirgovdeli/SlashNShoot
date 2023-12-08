@@ -1,8 +1,23 @@
-[gd_scene load_steps=24 format=3 uid="uid://cdxm55m2ht5gb"]
+[gd_scene load_steps=27 format=3 uid="uid://cdxm55m2ht5gb"]
 
 [ext_resource type="Texture2D" uid="uid://blpbxb15mb2q3" path="res://assets/kenney_prototypeTextures/Vector/texture_04.svg" id="1_2idy4"]
 [ext_resource type="Texture2D" uid="uid://tra1lhlk2hhu" path="res://assets/kenney_prototypeTextures/Vector/texture_03.svg" id="2_ul7cj"]
 [ext_resource type="Texture2D" uid="uid://dhhr8b2a1o7aj" path="res://assets/kenney_prototypeTextures/Vector/texture_09.svg" id="3_af4o0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8t7si"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_r100h"]
+sky_material = SubResource("ProceduralSkyMaterial_8t7si")
+
+[sub_resource type="Environment" id="Environment_gr4ll"]
+background_mode = 2
+sky = SubResource("Sky_r100h")
+tonemap_mode = 2
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l570v"]
 albedo_texture = ExtResource("1_2idy4")
@@ -161,6 +176,13 @@ shadow_mesh = SubResource("ArrayMesh_80r7o")
 data = PackedVector3Array(8, 0, -2, 8, 8, -10, 8, 8, -2, 8, 0, -2, 8, 0, -10, 8, 8, -10, 8, 0, -10, 16, 8, -10, 8, 8, -10, 8, 0, -10, 16, 0, -10, 16, 8, -10, 16, 0, -10, 16, 8, -2, 16, 8, -10, 16, 0, -10, 16, 0, -2, 16, 8, -2, 16, 0, -2, 8, 8, -2, 16, 8, -2, 16, 0, -2, 8, 0, -2, 8, 8, -2, 8, 0, -10, 16, 0, -2, 16, 0, -10, 8, 0, -10, 8, 0, -2, 16, 0, -2, 16, 8, -10, 8, 8, -2, 8, 8, -10, 16, 8, -10, 16, 8, -2, 8, 8, -2)
 
 [node name="Demo_Map" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gr4ll")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_l570v")
