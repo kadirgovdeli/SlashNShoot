@@ -36,6 +36,7 @@ script = ExtResource("1_5b5me")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_jy0e1")
+cast_shadow = 0
 mesh = SubResource("CapsuleMesh_6858l")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
