@@ -16,6 +16,8 @@ const LERP_VALUE = 10.0
 var dash_timer:Timer
 var dash_cooldown_timer:Timer
 
+
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var _speed:float = 0.0
@@ -29,6 +31,11 @@ var is_aiming:bool = false
 @onready var fps_camera = $FpsCamera
 @onready var combat_anim_player = $CombatAnimPlayer
 @onready var hit_area = $FpsCamera/HitArea
+@onready var gun_anim = $FpsCamera/Camera3D/Gun/AnimationPlayer
+@onready var gun_barrel = $FpsCamera/Camera3D/Gun/RayCast3D
+
+var bullet_res = load("res://scenes/Bullet/Bullet.tscn")
+@onready var marker_3d = $FpsCamera/Marker3D
 
 func _ready():
 	_speed = movement_speed
@@ -60,7 +67,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("attack"):
 		if is_aiming:
-			pass
+			shoot()
 		else:
 			attack()
 
@@ -71,6 +78,14 @@ func attack() -> void:
 	for target in hit_targets:
 		if target.has_method("take_damage"):
 			target.take_damage(melee_damage)
+
+func shoot() -> void:
+	if !gun_anim.is_playing():
+		gun_anim.play("shoot")
+		var bullet = bullet_res.instantiate()
+		bullet.position = marker_3d.global_position
+		bullet.transform.basis = marker_3d.global_transform.basis
+		get_parent().add_child(bullet)
 
 func handle_dash_state_change() -> void:
 	if not can_dash:

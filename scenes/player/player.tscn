@@ -2,15 +2,13 @@
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_rjgro"]
 [ext_resource type="Script" path="res://scenes/player/FpsCamera.gd" id="2_abi3k"]
+[ext_resource type="PackedScene" uid="uid://qm5fb50dlere" path="res://scenes/gun/gun.tscn" id="3_7b5us"]
 [ext_resource type="Texture2D" uid="uid://d8q8iy4g642v" path="res://assets/images/crosshair/crosshair.png" id="3_ye50y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rvjwb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_01tu1"]
 size = Vector3(0.05, 1, 0.05)
-
-[sub_resource type="BoxMesh" id="BoxMesh_oqx8e"]
-size = Vector3(0.1, 0.1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_acvmq"]
 size = Vector3(0.75, 0.75, 1)
@@ -45,19 +43,19 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("FpsCamera/Camera3D/Gun:position")
+tracks/2/path = NodePath("FpsCamera/Camera3D/Sword:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-0.16, -0.06, 0.305), Vector3(-0.16, -0.06, -0.01)]
+"values": [Vector3(0.21, -0.39, -0.225), Vector3(0.32, -0.39, -0.14)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("FpsCamera/Camera3D/Gun:rotation")
+tracks/3/path = NodePath("FpsCamera/Camera3D/Sword:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -69,50 +67,50 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("FpsCamera/Camera3D/Sword:position")
+tracks/4/path = NodePath("UI:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.21, -0.39, -0.225), Vector3(0.32, -0.39, -0.14)]
+"update": 1,
+"values": [false, true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("FpsCamera/Camera3D/Sword:rotation")
+tracks/5/path = NodePath("FpsCamera:mouse_sensitivity")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+"values": [5.889, 3.99]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("UI:visible")
+tracks/6/path = NodePath("FpsCamera/Camera3D/Gun:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"update": 0,
+"values": [Vector3(-0.19, -0.04, 0.565), Vector3(-0.19, -0.04, 0.225)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("FpsCamera:mouse_sensitivity")
+tracks/7/path = NodePath("FpsCamera/Camera3D/Gun:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [5.889, 3.99]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_c3oou"]
@@ -168,50 +166,50 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("FpsCamera/Camera3D/Gun:position")
+tracks/4/path = NodePath("UI:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.16, -0.06, 0.305)]
+"update": 1,
+"values": [false]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("FpsCamera/Camera3D/Gun:rotation")
+tracks/5/path = NodePath("FpsCamera:mouse_sensitivity")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [5.889]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("UI:visible")
+tracks/6/path = NodePath("FpsCamera/Camera3D/Gun:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector3(-0.19, -0.04, 0.565)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("FpsCamera:mouse_sensitivity")
+tracks/7/path = NodePath("FpsCamera/Camera3D/Gun:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [5.889]
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_g16l6"]
@@ -249,7 +247,7 @@ _data = {
 "sword_swing": SubResource("Animation_g16l6")
 }
 
-[node name="Player" type="CharacterBody3D" groups=["Player"]]
+[node name="Player" type="CharacterBody3D" groups=["killalbe", "player"]]
 script = ExtResource("1_rjgro")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -272,14 +270,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21, -0.39, -0.225)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FpsCamera/Camera3D/Sword"]
 mesh = SubResource("BoxMesh_01tu1")
 
-[node name="Gun" type="Node3D" parent="FpsCamera/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16, -0.06, 0.305)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="FpsCamera/Camera3D/Gun"]
-mesh = SubResource("BoxMesh_oqx8e")
-
-[node name="Marker3D" type="Marker3D" parent="FpsCamera/Camera3D/Gun"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+[node name="Gun" parent="FpsCamera/Camera3D" instance=ExtResource("3_7b5us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19, -0.04, 0.565)
 
 [node name="HitArea" type="Area3D" parent="FpsCamera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1)
@@ -288,6 +280,9 @@ collision_mask = 17
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FpsCamera/HitArea"]
 shape = SubResource("BoxShape3D_acvmq")
+
+[node name="Marker3D" type="Marker3D" parent="FpsCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="CombatAnimPlayer" type="AnimationPlayer" parent="."]
 libraries = {

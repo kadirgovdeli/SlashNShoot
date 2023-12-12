@@ -1,17 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://e4uepxcauf6p"]
+[gd_scene load_steps=8 format=3 uid="uid://e4uepxcauf6p"]
 
 [ext_resource type="Script" path="res://scenes/Bullet/Bullet.gd" id="1_5b5me"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jy0e1"]
 albedo_color = Color(1, 1, 0.407843, 1)
 emission_enabled = true
-emission = Color(63.905, 39.053, 1.775, 1)
+emission = Color(0.761907, 0.727435, 0.444617, 1)
+emission_energy_multiplier = 5.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6858l"]
 radius = 0.1
 height = 0.2
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_si34a"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pyuby"]
+albedo_color = Color(0.709804, 0.717647, 0.34902, 1)
+emission_enabled = true
+emission = Color(1, 0.917647, 0.203922, 1)
+emission_energy_multiplier = 8.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y5xdl"]
+direction = Vector3(0, 0, 1)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_jvrv8"]
+radius = 0.02
+height = 0.04
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qhnoe"]
+radius = 0.25
+height = 1.0
 
 [node name="Bullet" type="Node3D"]
 script = ExtResource("1_5b5me")
@@ -20,7 +38,25 @@ script = ExtResource("1_5b5me")
 material_override = SubResource("StandardMaterial3D_jy0e1")
 mesh = SubResource("CapsuleMesh_6858l")
 
-[node name="bullet_hitbox" type="Area3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.372192)
+material_override = SubResource("StandardMaterial3D_pyuby")
+emitting = false
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_y5xdl")
+draw_pass_1 = SubResource("SphereMesh_jvrv8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="bullet_hitbox"]
-shape = SubResource("SphereShape3D_si34a")
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_qhnoe")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

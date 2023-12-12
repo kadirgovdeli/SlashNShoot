@@ -5,6 +5,8 @@ signal game_unpaused()
 @onready var resume_button = %ResumeButton
 @onready var quit_button = %QuitButton
 @onready var color_rect = $ColorRect
+@onready var restart_button = %RestartButton
+
 var can_change:bool = true
 @export_range(0.0,4.0) var max_blur:float = 2.5
 @export_range(0.0,1.0) var min_brightness:float = 0.9
@@ -17,6 +19,10 @@ func _ready():
 	
 	resume_button.pressed.connect(disable_pause_menu)
 	quit_button.pressed.connect(get_tree().quit)
+	restart_button.pressed.connect(func():
+		get_tree().paused = false
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		get_tree().reload_current_scene())
 	color_rect.material.set_shader_parameter("blur", 0.0)
 	color_rect.material.set_shader_parameter("brightness", 1.0)
 	enable_pause_menu()

@@ -27,7 +27,7 @@ func _physics_process(delta):
 		move_and_slide()
 
 func _on_player_detector_body_entered(body):
-	if body.is_in_group("Player"):
+	if body.is_in_group("player"):
 		player = body
 		detected_label.visible = true
 		print("Player Detected!")
