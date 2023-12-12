@@ -16,7 +16,7 @@ func _ready():
 	if player == null:
 		player = owner as CharacterBody3D
 
-func _unhandled_input(event):
+func _input(event):
 	if event is InputEventMouseMotion:
 		var rot:Vector2 = event.relative / get_viewport().get_visible_rect().size
 		player.rotate_y(-rot.x * mouse_sensitivity)

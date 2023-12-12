@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://e4uepxcauf6p"]
+
+[ext_resource type="Script" path="res://scenes/Bullet/Bullet.gd" id="1_5b5me"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jy0e1"]
+albedo_color = Color(1, 1, 0.407843, 1)
+emission_enabled = true
+emission = Color(63.905, 39.053, 1.775, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6858l"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_si34a"]
+
+[node name="Bullet" type="Node3D"]
+script = ExtResource("1_5b5me")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_jy0e1")
+mesh = SubResource("CapsuleMesh_6858l")
+
+[node name="bullet_hitbox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bullet_hitbox"]
+shape = SubResource("SphereShape3D_si34a")

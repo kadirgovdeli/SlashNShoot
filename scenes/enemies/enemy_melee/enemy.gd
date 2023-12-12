@@ -1,4 +1,6 @@
-extends CharacterBody3D
+class_name enemy extends CharacterBody3D
+@export var max_health:float = 10.0
+@export var health:float = 10.0
 
 @export var speed:float = 5.0
 @export var player:CharacterBody3D;
@@ -6,7 +8,16 @@ extends CharacterBody3D
 @onready var nav = $NavigationAgent3D
 @onready var detected_label = $DetectedLabel
 
+signal enemy_died(enemy:CharacterBody3D)
 
+func take_damage(damage:float) -> void:
+	health -= damage
+	if health < 0.0:
+		die()
+		
+func die() -> void:
+	emit_signal("enemy_died", self)
+	queue_free()
 
 func _physics_process(delta):
 	if player != null:
@@ -24,3 +35,4 @@ func _on_player_detector_body_entered(body):
 
 func _on_navigation_agent_3d_target_reached():
 	print("ur dead. lul noob :p")
+	

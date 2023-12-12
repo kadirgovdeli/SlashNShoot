@@ -63,6 +63,10 @@ pause_game={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_5="combat"
+
 [rendering]
 
 renderer/rendering_method="mobile"
